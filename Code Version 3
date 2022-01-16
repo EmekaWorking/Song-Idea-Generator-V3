@@ -1,0 +1,1107 @@
+import random
+import os
+import sys
+
+SS = ['Emulate Create Futurebass', 'Abra Cadabra - Flicky', 'Darkos Strife - Rindoukan', 'Battle',
+     'Jazz Quartet 1: MM Saxophone ,C/CM Piano , D Drummer, B Bass', 'Whereisalex - Separate', 'Tekvision Plastic',
+     'FITS - Prince Zuko', 'Mr Surf - Shit', 'Mr Surf - Hotline Bling', 'Biome - Bonsai', 'Darkos Strife - Drop',
+     'Glances - Vanilla', 'Flex the Ninja - Love is So Addicted', 'Mizormac - Say Mizzy',
+     'Jujustu Kaisen - OP 1 Breakdown', 'Jack and Jill NJS', 'The Kount - Yo', 'Summer walker - Girls need love',
+     'Darren Warren band - All the Up | Lead Electric Guitar, Lower Octave Guitar ,Choir Chords,Bells, Strings,Bass',
+     'Satella - Folded Wings', 'Roger Troutman - Play Your Guitar 116', 'Ace Aura - Rise',
+     'Bryson Tiller Ft Drake - Outta Time', 'Houseki - Ealry afternoon', 'Ref Amd 2 + Darkos 144',
+     'Jhus - Free up Nigthcore 146', 'Skills8Figure - Champagne', 'The Code - Breath', 'The Code - Moments',
+     'Wize -  Chocolate Milk 135', 'Mary J Blige - Love no limit', 'Sia Cheap Thrills', 'Protoyp3 x twocan Part II',
+     'Silk - Love you Down', 'SWV - Anything', ' Signs of you',
+
+     ]
+MM = [ #instrumental
+     'JJ - So lonely', 'Autumn Leaves', 'Blue Bossa', 'K project - Past and present', 'Jujustu Kaisen - Gojou Battle',
+     'Strike the blood - Track 02', 'William Mcdowel - Only you can satisfy', 'Melty Blood - Severe Person Full M' ,
+     'Satella - Folded Wings Chorus', 'Aaliyah Actualized String Melody', 'Tekken 6 Ost - Fallen Colony Entire melody',
+     'Tekken 6 Ost - Fallen Colony Chorus', 'The Kount - Yo, Choir M', 'Whereisalex - Stuck in the Wild Ending', '6th June',
+     'Platina Jazz - Tank Chorus', 'Darren Warren band - All the Up', 'Satella - Folded Wings Entire Melody',
+     'Street Figther Master MM ', 'Street Figther Master Part B',  'Think F melod MM 150', 'Ref Amd 2 + Darkos MM 144',
+     'Houseki - Ealry afternoon Violin MM 3/4', 'Mary J Blige - Love no limit 1st Chorus',  'SWV - Anything',
+
+     ],[
+     #beats
+     'Jrob - Wrist', 'Trap 1 & A', 'CC - Breath', 'Flex the Ninja - satisfaction',
+      "Tsuruda - Ghost", 'Whereisalex - Death', 'Whereisalex - ATTTLD'
+     , 'Zekk ft poplavor - Gloomy Flash',
+     'Whereisalex - Separate', 'FITS - Prince Zuko'
+   , 'Mr Surf - Shit', 'Mr Surf - Hotline Bling Pluck', 'Darkos Strife - Drop',
+     'Flex the Ninja - Love is So Addicted', 'Jujustu Kaisen - OP 1 Breakdown',
+     'Lege Kele - Snake Charmer',
+     'Iglooghost - White gum Ending 170 Lead',
+      'IglooGhost - Solar Blade Edited',
+     'Virtual Riot - Dream logic Ab Drop', 'Ace Aura - Rise A Drop', 'Ordnry Yngstr',
+     'Bryson Tiller Ft Drake - Outta Time Background Vocal & Guitar Sample', 'So Solid Crew - 21 Seconds Chorus Pluck',
+     'Houseki - Ealry afternoon Xylo MM 3/4',
+     'RAYE, Mr Eazi - Decline [Nightcore] Edited 136 VMM', 'War Sings 140', 'Cluless - Drift 134', 'Bassit Swing 105',
+     'Defy ending MM', 'Smoke Boyz - Mad About Bars 140', '21 Savage - Ball w/o You ',
+     'Mary J Blige - Love no limit 1st Chorus', 'Protoyp3 x twocan Part II', 'Chukz', 'Demise MM',
+
+     ]
+
+MMB = [
+     #beats
+     'Jrob - Wrist', 'Trap 1 & A', 'CC - Breath', 'Flex the Ninja - satisfaction',
+      "Tsuruda - Ghost", 'Whereisalex - Death', 'Whereisalex - ATTTLD'
+     , 'Zekk ft poplavor - Gloomy Flash',
+     'Whereisalex - Separate', 'FITS - Prince Zuko'
+   , 'Mr Surf - Shit', 'Mr Surf - Hotline Bling Pluck', 'Darkos Strife - Drop',
+     'Flex the Ninja - Love is So Addicted', 'Jujustu Kaisen - OP 1 Breakdown',
+     'Lege Kele - Snake Charmer',
+     'Iglooghost - White gum Ending 170 Lead',
+      'IglooGhost - Solar Blade Edited',
+     'Virtual Riot - Dream logic Ab Drop', 'Ace Aura - Rise A Drop', 'Ordnry Yngstr',
+     'Bryson Tiller Ft Drake - Outta Time Background Vocal & Guitar Sample', 'So Solid Crew - 21 Seconds Chorus Pluck',
+     'Houseki - Ealry afternoon Xylo MM 3/4',
+     'RAYE, Mr Eazi - Decline [Nightcore] Edited 136 VMM', 'War Sings 140', 'Cluless - Drift 134', 'Bassit Swing 105',
+     'Defy ending MM', 'Smoke Boyz - Mad About Bars 140', '21 Savage - Ball w/o You ',
+     'Mary J Blige - Love no limit 1st Chorus', 'Protoyp3 x twocan Part II', 'Chukz', 'Demise MM',
+
+     ]
+
+CM = ['Trap Black & Yellow', 'Chord Arps 8th notes', 'Chord Arps 16th notes', 'Jrob - Wrist CM',
+     "Whereisalex - Separate Vocal CM (Every And)", 'Melty Blood - Severe Person', 'Battle Nova Boss Battle',
+     'Jack and Jill NJW Guitar', 'Platina Jazz - Tank Trumpet CM', 'Satella - Folded Wings Chorus',
+     'Mr Carmack - Solutions 2nd Drop Woo CM 146', 'So Solid Crew - 21 Seconds Verse CM', 'Street Figther Master A',
+     'Street Figther Master Part B', 'Houseki - Ealry afternoon 1st Xylo CM 3/4',
+     'Houseki - Ealry afternoon 2nd Arp Xylo CM 3/4', 'Garage Vibes + Jazz Chords Vocal CM 150',
+     'Garage Vibes + Jazz Chords Xylo CM 150', 'Think F melod CM 150', 'Ref Amd 2 + Darkos CM 144 ',
+     'Jhus - Free up Nigthcore 146 SteelPan CM', 'RAYE, Mr Eazi - Decline [Nightcore] Edited 136 Bell CM',
+     'The Code -Breath CM', 'Chukz CM', 'Demise CM', 'Demise Choir CM','Wize - Dot rotten Lemonade Freestyle',
+
+     ]
+
+C = ['Battle', 'Autumn Leaves', 'CC - Breath', 'Emulate Create Dubstep', 'SW - Isnt she lovely', 'Blue Bossa',
+    'JJ - I Get So Lonely', 'Sonic CD - US Ending ', 'Half Step', 'Daneil Ceaser - Best Part',
+    'Whereisalex - Whats it going to be Bridge', 'Tekvision - Plastic Drop', 'Satella - Folded Wing Chorus',
+    'Jujustu Kaisen - OP 1 Breakdown',
+    'Whereisalex - Stuck in the Wild Ending', 'The Kount - Yo', 'Platina Jazz - Tank Chorus',
+    'Darren Warren band - All the Up', '6th June', 'Roger Troutman - Play Your Guitar 116', 'Whereisalex Binky',
+    'Jujustu Kaisen - OP 1 Breakdown', 'Jennifer Hudson - Your going to love me ending', 'Jaquie - Breaks',
+    'Satella - Folded Wing Entire Song', 'Rob Drilly Idea 110', 'War Sings 140', 'Cluless - Drift 134',
+    'Nakala - If you dont', 'Bassit Swing 105', 'Skills8Figure - Champagne', 'The Code - Breath',
+    '21 Savage - Ball w/o You ', 'Mahalia - Sober (Jarreau Vandal Remix) ', 'Cay Caleb Dont want you on my mind',
+    'Silk - Love you Down', 'Demise 140', 'SWV- Anything', 'Signs of you','Devin Morrison - Thats All Good ', 'Devin Morrison - No',
+
+    ]
+
+CP = ['Standard', '1/4 note pattern', '8th note pattern', 'Westcoast line Garage Pattern',
+     "Chuck Sutton big booty shacker", 'Way out', 'Keys String Pattern', 'Diveo - Rendezvous',
+     'Whereisalex - Stuck in the wild', 'Whereisalex - Whats it going to be Verse', 'Zekk ft poplavor - Gloomy Flash',
+     'Darkos Strife - Jazzy 99 Drop', 'Flex the Ninja - Love is So Addicted', 'Jujustu Kaisen - OP 1 Breakdown',
+     'Battle Bossa Nova Section', 'Jack and Jill NJW Organ Pattern', 'Battle Bossa Nova', 'Joyce Wrice - So So Sick',
+     'Iglooghost - White gum Choir Chordal movement Ending 170',
+     'Whereisalex - Seperate Chord stops 1:3 - 3:3 - 6:3 - 7:3 - 8:3', 'Summer walker - Girls need love Verse',
+     'Axl - Jazz', 'Platina Jazz - Tank Chorus', 'Darren Warren band - All the Up String CP',
+     'Chromonicci - Sapphire 2:4 & 4:4 CP', 'Jaquie - Breaks', 'More Fire Crew - Oi', 'Scrufizzer - SBTV 2009 142',
+     'Sticky - Tripplets 2', 'Think F melod CP 150', 'Jhus - Free up Nigthcore 146 Short Chord Stab',
+     'War Sings 140', 'Cluless - Drift 134', 'The Code - Moments Final Glitch Chorus', 'Silk - Love you Down',
+     'YeahRight - Hurt', 'Demise',
+
+     ]
+
+D = [
+# Favs D0
+       'super'
+   ], [
+       # Afrobeats D1
+       'MTJ - Party with A jaggaban', 'Biome - Bonsai'], [
+       # Afroswing D2
+       'Jhus - Free up Nigthcore 146', 'RAYE, Mr Eazi - Decline [Nightcore] Edited 136', 'Bassit Swing 105',
+       'Skills8Figure - Champagne'], [
+       # Bashment/,Dancehall D3
+       'Sia Cheap Thrills 89'], [
+       # Dnb D4
+       'Iglooghost - White gum Ending 170', 'When im bored', 'IglooGhost - Solar Blade Edited 165'], [
+       # Drill D5
+       'Digga - D No Diet', 'Abra cadabra - Baby', 'FITS - Prince Zuko 1:56 To 2:20', 'Bass Face''Wize 007','Fame Kobane - Cutty Cutty',
+       'Mizormac - Say Mizzy 0:53 to 1:07', 'Keys - Master 140', 'Rob Drilly Idea 110',
+       'Smoke Boyz - Mad About Bars 1:02 140', 'Silly Drilly 142','Wize - 007 Drill'], [
+       # Dubstep D6
+       'Virtual Riot - Quantum Remix'], [
+       # Edm Trap D7
+       'Whereisalex - Death', 'Virtual Riot Dream - Logic AB', 'Mr Carmack - Charge',
+       'Whereisalex - Lord of the flies', 'Oshi - Swagg', 'Flex the Ninja - Satisfaction', 'Mr Carmack - Luxor A',
+       'Mr Carmack Solutions A 146', 'Virtual Riot - Dream logic Ab Drop 150'], [
+       # Funk D8
+       'Roger Troutman - Play Your Guitar 116', 'Sonic CD - US Ending Drums', 'The Kount - Yo',
+       'Mahalia - Sober (Jarreau Vandal Remix) 103'], [
+       # Futurebass D9
+       'Virtual Riot - NLMG', 'YeahRight - Hurt Drop A 140'], [
+       # Futurebeats D10
+       'Battle', "Battle Bossa Nova", "Naji Ft Montell - Mona Lisa", "Chuck Sutton big booty shacker", 'Jrob - Wrist',
+       "Ordnry Yngster - Glitch 128", 'Braeden bailey - the end', 'Wize -  Chocolate Milk 135', 'Wize - Know You',
+       'Keys', 'When Im Bored', 'Diveo - Rendezvous', 'Whereisalex - Say My Name', 'Darkos Strife - Jazzy 99 (3.20)',
+       'Mr Surf - Shit 1:26 - 1:43', 'Mr Surf - Hotline Bling', 'Jrobb - Foisey 2', 'Darkos Strife - Drop',
+       'Aaliyah Actualized', 'Axl - Jazz 190', '6th June', 'Street Figther Master Aa ', 'Street Figther Master Part B',
+       'Ref Amd 2 + Darkos 144', 'War Sings 140', 'Cluless - Drift 134', 'Sadkey - Ought 140', 'Yk - Lay it down 139',
+       'Thriftworks - Sky Fiyah 150', 'Cay Caleb Dont want you on my mind 123', 'Demise 140'], [
+       # Garage D11
+       'Camellia - Baby Verse', 'Zekk ft poplavor - Gloomy Flash', 'Time 2nd Drop', 'Time 2nd Drop',
+       'So Solid Crew - 21 Seconds Verse', 'So Solid Crew - 21 Seconds Chorus', 'More Fire Crew - Oi',
+       'Sticky Ft Stush - Dollar Sign', 'Sticky - Tripplets 2', 'Garage Vibes + Jazz Chords 150'], [
+       # Grime D12
+       'More Fire Crew - Oi', 'Wiley - Eskimo', 'Scrufizzer - SBTV 2009 142'], [
+       # Hiphop D13
+       'Flex the Ninja - Love is So Addicted', 'Signs of you'], [
+       # House D14
+       'Stephanie Cook - Dont take it'], [
+       # Jazz D15
+       '6 Chinese Takeaway', 'Whereisalex - Stuck in the wild', 'Darren Warren band - All the Up'], [
+       # Jrock D16
+       'バニラ 142'], [
+       # Latin Jazz D17
+       'Battle Bossa nova', 'Platina Jazz - Tank Chorus', 'Chromonicci - Sapphire', 'Think F melod 150'], [
+       # Neurohop D18
+       'Tekvision - Plastic', 'Glances - Vanilla Drop A'], [
+       # New Jack Swing D19
+       'Jack and Jill NJW 106'], [
+       # Original D20
+       'Aaliyah Actualized', 'Time 2nd Drop', 'Battle', '6th June', 'Street Figther Master Aa ',
+       'Street Figther Master Part B', 'Garage Vibes + Jazz Chords 150', 'Ref Amd 2 + Darkos 144', 'War Sings 140',
+       'Silly Drilly 142', 'Demise 140'], [
+       # Riddim D21
+       'Ace Aura - Rise A Drop', 'Virtual Riot - Dream logic A Drop'], [
+       # Rnb D22
+       'Devin Morrison - Ayako', 'Summer walker - Girls need love Verse', 'Jaquie - Breaks',
+       'Bryson Tiller Ft Drake - Outta Time Verse',
+       'Bryson Tiller Ft Drake - Outta Time Chorus', 'Nakala - If you dont',
+       'The Code - Breath Verse 9 bars Drums 103', 'The Code - Breath Chorus 103', 'The Code - Moments 144 ',
+       'Mary J Blige - Love no limit 85', 'Silk - Love you Down 109', 'SWV- Anything 86','Devin Morrison - Thats All Good',], [
+
+       # Rock D23
+       'Jujustu Kaisen - OP 1 Breakdown'], [
+       # Trap D24
+       'Nox - bands 96', 'Yung Thung - Hercules Chorus 147', '21 Savage - Ball w/o You 138',
+       'Protoyp3 x twocan Part II 109'], [
+       # Selected D25
+       'Wize - 007'], [
+       # Genre spaces before all
+       '26'], ['27'], ['28'], ['29'], ['30'], ['31'], ['32'], ['33'], ['34'], [
+
+       # All D35
+       # Favs:
+
+       # Afrobeats
+       'MTJ - Party with A jaggaban', 'Biome - Bonsai',
+       # Afroswing
+       'Jhus - Free up Nigthcore 146', 'RAYE, Mr Eazi - Decline [Nightcore] Edited 136', 'Bassit Swing 105',
+       'Skills8Figure - Champagne',
+       # Bashment/,Dancehall
+       'Sia Cheap Thrills 89'
+       # Dnb
+       'Iglooghost - White gum Ending 170', 'When im bored', 'IglooGhost - Solar Blade Edited 165',
+       # Drill
+       'Digga - D No Diet', 'Abra cadabra - Baby', 'FITS - Prince Zuko 1:56 To 2:20', 'Bass Face','Wize - 007','Fame Kobane - Cutty Cutty',
+       'Mizormac - Say Mizzy 0:53 to 1:07', 'Keys - Master 140', 'Rob Drilly Idea 110',
+       'Smoke Boyz - Mad About Bars 1:02 140', 'Silly Drilly 142','Wize - 007 Drill',
+       # Dubstep
+       'Virtual riot - Qauntum remix',
+       # Edm Trap
+       'Whereisalex - Death', 'Virtual Riot Dream - Logic AB', 'Mr Carmack - Charge',
+       'Whereisalex - Lord of the flies', 'Oshi - Swagg', 'Flex the Ninja - Satisfaction', 'Mr Carmack - Luxor A',
+       'Mr Carmack Solutions A 146', 'Virtual Riot - Dream logic Ab Drop 150',
+       # Funk
+       'Roger Troutman - Play Your Guitar 116', 'Sonic CD - US Ending Drums', 'The Kount - Yo',
+       'Mahalia - Sober (Jarreau Vandal Remix) 103',
+       # Futurebass
+       'Virtual Riot - NLMG', 'YeahRight - Hurt Drop A 140',
+       # Futurebeats
+       'Battle', "Battle Bossa Nova", "Naji Ft Montell - Mona Lisa", "Chuck Sutton big booty shacker", 'Jrob - Wrist',
+       "Ordnry Yngster - Glitch 128", 'Braeden bailey - the end', 'Wize -  Chocolate Milk 135', 'Wize - Know You',
+       'Keys', 'When Im Bored', 'Diveo - Rendezvous', 'Whereisalex - Say My Name', 'Darkos Strife - Jazzy 99 (3.20)',
+       'Mr Surf - Shit 1:26 - 1:43', 'Mr Surf - Hotline Bling', 'Jrobb - Foisey 2', 'Darkos Strife - Drop',
+       'Aaliyah Actualized', 'Axl - Jazz 190', '6th June', 'Street Figther Master Aa ', 'Street Figther Master Part B',
+       'Ref Amd 2 + Darkos 144', 'War Sings 140', 'Cluless - Drift 134', 'Sadkey - Ought 140', 'Yk - Lay it down 139',
+       'Thriftworks - Sky Fiyah 150', 'Cay Caleb Dont want you on my mind 123', 'Demise 140',
+       # Garage
+       'Camellia - Baby Verse', 'Zekk ft poplavor - Gloomy Flash', 'Time 2nd Drop', 'Time 2nd Drop',
+       'So Solid Crew - 21 Seconds Verse', 'So Solid Crew - 21 Seconds Chorus', 'More Fire Crew - Oi',
+       'Sticky Ft Stush - Dollar Sign', 'Sticky - Tripplets 2', 'Garage Vibes + Jazz Chords 150',
+       # Grime
+       'More Fire Crew - Oi', 'Wiley - Eskimo', 'Scrufizzer - SBTV 2009 142',
+       # Hiphop
+       'Flex the Ninja - Love is So Addicted', 'Signs of you',
+       # House
+       'Stephanie Cook - Dont take it',
+       # Jazz
+       '6 Chinese Takeaway', 'Whereisalex - Stuck in the wild', 'Darren Warren band - All the Up',
+       # Jrock
+       'バニラ 142',
+       # Latin Jazz
+       'Battle Bossa nova', 'Platina Jazz - Tank Chorus', 'Chromonicci - Sapphire', 'Think F melod 150',
+       # Neurohop
+       'Tekvision - Plastic', 'Glances - Vanilla Drop A',
+       # New Jack Swing
+       'Jack and Jill NJW 106',
+       # Original
+       'Aaliyah Actualized', 'Time 2nd Drop', 'Battle', '6th June', 'Street Figther Master Aa ',
+       'Street Figther Master Part B', 'Garage Vibes + Jazz Chords 150', 'Ref Amd 2 + Darkos 144', 'War Sings 140',
+       'Silly Drilly 142', 'Demise 140',
+       # Riddim
+       'Ace Aura - Rise A Drop', 'Virtual Riot - Dream logic A Drop',
+       # Rnb
+       'Devin Morrison - Ayako', 'Summer walker - Girls need love Verse', 'Jaquie - Breaks',
+       'Bryson Tiller Ft Drake - Outta Time Verse',
+       'Bryson Tiller Ft Drake - Outta Time Chorus', 'Nakala - If you dont',
+       'The Code - Breath Verse 9 bars Drums 103', 'The Code - Breath Chorus 103', 'The Code - Moments 144 ',
+       'Mary J Blige - Love no limit 85', 'Silk - Love you Down 109', 'SWV- Anything 86','Devin Morrison - Thats All Good ',
+
+       # Rock
+       'Jujustu Kaisen - OP 1 Breakdown',
+       # Trap
+       'Nox - bands 96', 'Yung Thung - Hercules Chorus 147', '21 Savage - Ball w/o You 138',
+       'Protoyp3 x twocan Part II 109',
+   ]
+
+P = ['Wize - Know you', 'Bossa nova bongo', 'Drill Hi-hat', 'The Kount - Yo', 'Iglooghost - White gum Ending 170',
+    'Battle Bossa Nova', 'Chromonicci - Sapphire Aa', 'Nox - bands 96', 'Street Figther Master Part',
+    'Jhus - Free up Nigthcore 146', 'The Code - Moments', 'Chukz', 'Cay Caleb Dont want you on my mind',
+
+    ]
+SGD = [
+   # Specified drum genre feature ,
+   (random.choice(D))
+
+]
+T = [
+   # Beginning
+   '1.3 bass Growl', '1.3 Drum Fill', "Wub 1:1.3 - Whereisalex Tesseract B", "Kick ommision 1 - 1.3",
+   'Wub 1 - 1:3 + Snare Wub 1:3', 'Whereisalex Seperate Drum Fill at 9:0 (12n Scale Wub With MM + CM)', 'Bass Drop',
+   'Diveo - Rondezvous 9:0 - 9:1:3 Bass Drop + Omit snare till 2:3', 'Bass Drop 9:0 - 1:3',
+   'Wub Wub 9:9:3 + SF Scream 9:3 - 6th June', 'Melody only omit drums till 1:3 - 6th June Start',
+   'Create bass Heavey Drum Bass transition',
+
+   # Ending
+   '4:0 | 4 Note 8th notes bass growl', '4:0 | 2 Note 8th notes bass growl',
+   'Downer at 4:3 then Cymbal rise till 1.3 snare', '4 note Wub Wub at 4:3', 'Glide Downer Bass 4:3 - Battle',
+   'Glide Downer Bass 16:3 - Battle', '4 Rhodes Sinepad Sinelead wave movement - Darren Warren all the way up 2:03',
+
+]
+E = ['melody octave higher 8/16', 'Breaths 8/16', "counter melody 8/16 Wize Lost Sword",
+    "New main melody 8/16 - VR N.L M.G", 'Double Main Melody up 8/16 - The Kount Yo',
+    'Rhodes 16/32 - Whereisalex Separate', ' FilterpanFlange for 8 bars 17:0 -F.T.N Addicted',
+
+    ]
+I = ['Gspiel outline the bass note of the CP', 'Strings play the 2/3 upper harmonics of chord',
+    'Quadruple 16th Note hit at 3rd bar - Angry Dave', 'What waWhat chant from Bassface ⅝',
+    'No kick till 3rd Bar - Wize Chocolate Milk', '4 and 5 Vocal Riff - Wize Chocolate Milk',
+    'Tsruda - Ghost Midi Composition', 'Whoosh Crash ', 'Tamberine Crash - Ref amd Anger Of the Earth', 'Whoosh Crash',
+    'Tamberine Crash - Amd A.O.T', 'Dream Logic - 16:3 Part B', 'Trumpet 1 and Jack And Jill',
+    'Ho + Siren + Flute delay one shot keyz', '2 8th note Hit on 3.3 Snare', 'Snare Wub 1:3',
+    'Sustained String Key Note - Joyce Wrice So So Sick',
+    'Drill wub wub wub 16th notes at 3.3.3 - 3.4 - 3.4.3 from FITS - Zuko',
+    '6 Wub Wub 6.3 - 6.3.3.2 - 6.3.4 - 6.4 - 6.4.3 - 6.4.4.2 From FITS - Zuko',
+    'ChaKachaKa Shaker pattern 2.3.4 - 2.3.4 - 2.4 - 2.4.3 in Zuko Battle',
+    'Iglooghost - White gum Ending 170  Melodic Run at 7-9(8th notes)', 'String bassline Copy cat movement - 6th june',
+    'Repeat 4 note Prasing*4 Changing different intruments each time - 6th June',
+    'IglooGhost - Solar Blade Edited Whilste at at 3:3 & 5:3', 'Inaduible high pitch rap - Iglooghost Soloar Blade',
+    'Jhus - Free up Nigthcore 146 Melodic Drum 1.4 - 1.4.2 -1.4.4', 'Mary J Blige - Love no limit call and response',
+    'Vocal riff at 6.2 and 8.2 Pelumiiiii','Ha ha 4 n 5','Qauter note pizzacato choir', 'Sirens','Balle Funk beatbox',
+
+    # Effects
+    'Vinly background noise',
+
+    ]
+A = [
+   # Afrobeats
+   # Afroswing
+   'Jhus - Free up Nigthcore 146',
+   # Bashement/Dabcehall
+   'Sia Cheap Thrills',
+   # Classical
+   # Bossa Nova
+   # Drill
+   'Abra Cadabra Flicky', 'Keyz - System', 'Fits - Zuko', 'Wize - 007','Kay Flock - Is Ya Ready',
+   # Dubstep
+   # Edm Trap
+   "Flex The Ninja - Satisfaftion", 'Mr Carmack - Charge', 'Mr Carmack - Solutions 146',
+   # Funk
+   'The Kount - Yo', 'Roger Troutman - Play Your Guitar 116', 'Mahalia - Sober (Jarreau Vandal Remix) 103',
+   # Futurebass
+   'Solush - Daydreaming', 'Sadkey - Ought 140',
+   # Futurebeats
+   'Darkos Strife - Rindoukan', 'Emulate Create Future bass', 'Battle', 'Ref Amd 2 + Darkos 144',
+   "Sam Gellaitry - Long Distance whereisalex remix", 'Ordnry Yngter - Feels 122',
+   'Cay Caleb Dont want you on my mind 123',
+   # Neurofunk
+   # Speed Garage
+   'Zekk ft poplavor - Gloomy Flash',
+   # Jrock
+   # Orchestral
+   'Satella - Outpost', 'Melty Blood - Severe Person', 'Houseki - Early Morning ',
+   # Riddim
+   'Ace Aura - Rise',
+   # Rnb
+   'Summer Walker - Girls Need love', 'Bryson Tiller Ft Drake - Outta Time', 'The Code - Breath', 'The Code - Moments',
+   'Drews That Dude x J-Louis Patron Pimpin',
+   # Trap
+   'Nox - bands',
+]
+
+data = [['NAME', 'AGE', 'HANDEDNESS', 'SCORE (%)'],
+       ['Martin', 38, 'L', 54.123],
+       ['Marty', 33, 'L', 32.438],
+       ['Martine', 25, 'R', 71.128],
+       ['Martyn', 59, 'R', 50.472],
+       ['Mart', 23, 'L', 2.438],
+       ['Martyne', 15, 'R', 71.128],
+       ['Marlyn', 101, 'R', 0.472],
+       ['Marti', 2, 'L', 55.438],
+       ['Mardi', 9, 'R', 81.128],
+       ['Martyne', 49, 'R', 24.472],
+       ['Marteen', 91, 'L', 1.128]]
+
+
+Idea = input("1 or 2 MCI, 1a MMi, 2a MMb 3CM, 4C, 5CP, 6D, 0I , nn to Genre, x for more info ")
+if Idea=="1":
+	print('Main melody:', random.choice(MM[0]))
+	print('Counter melody:', random.choice(CM))
+	print('Idea:', random.choice(I))
+	print('Idea:', random.choice(I))
+	
+	
+   
+
+	  
+elif Idea=="2":
+	print('Main Melody:', random.choice(MM[1]))
+	print('Counter Melody:', random.choice(CM))
+	print('Idea:', random.choice(I))
+	print('Idea:', random.choice(I))
+	
+elif Idea=="1a":
+	print('Main Melody:', random.choice(MM[0]))
+
+elif Idea=="2a":
+	print('Main Melody:', random.choice(MM[1]))
+
+elif Idea=="3":
+	print('Counter Melody:', random.choice(CM))
+		
+elif Idea=="4":
+	print('Chord Progression:', random.choice(C))			
+
+elif Idea=="5":
+	print('Chord Pattern:', random.choice(CP))
+	
+elif Idea=="6":
+	print('Drums and Bass:', random.choice(D[35]))
+
+elif Idea=="0":
+	print('Idea:', random.choice(I))				
+		
+elif Idea=="s":
+	print('Sound Selection:', random.choice(SS))	
+
+restart = input("\nDo you want to restart the program? [y/n] > ")
+
+if restart == "y":
+  os.execv(sys.executable, ['python'] + sys.argv)
+else:
+   print("\nThe programm will me closed...")
+   
+
+   #print('Main melody:', random.choice(MM[0]))
+   #print('Counter Melody:', random.choice(CM))
+  
+   
+
+
+
+Genre = input("What genre, would you like to make, 'x twice' for more info ")
+Arrange = input("What arrangement would you like to make: Instrumental[a] or Beat[b] ")
+if Genre == "favs" and Arrange == "a":
+
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[0]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "favs" and Arrange == "b":
+
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[0]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+
+
+elif Genre == "afrobeats" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[1]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "afrobeats" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[1]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "afroswing" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[2]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "afroswing" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[2]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "bashment" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[3]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "bashment" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[3]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+
+elif Genre == "dnb" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[4]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "dnb" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[4]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "drill" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[5]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "drill" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[5]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "dubstep" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[6]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "dubstep" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[6]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "edm trap":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[7]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "funk":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[8]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "future bass":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[9]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "futurebeats":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[10]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "garage":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[11]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "grime":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[12]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "hiphop":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[13]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "house":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[14]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "jazz":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[15]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "jrock":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[16]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "latin jazz":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[17]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "neurohop":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[18]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "new jack swing":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[19]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "original":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[20]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "riddim":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[21]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+elif Genre == "rnb":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[22]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "rock":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[23]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "trap":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[0 - 25]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "selected":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[25]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "all" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[35]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "all" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[35]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "x":
+   print('[all] for random genre')
+   print('[original] for own drum patterns')
+   print('[selected] for select drum pattern in database ')
+   print('Genres:')
+   print('Genres')
+# print('Arrangement: The Breath')
+
+else:
+   print('Invalid Genre')
+
+restart = input("\nDo you want to restart the program? [y/n] > ")
+
+if restart == "y":
+   os.execv(sys.executable, ['python'] + sys.argv)
+else:
+   print("\nThe programm will me closed...")
+   sys.exit(0)
+
+"""print ("Song amal")
+D = [
+#afrobeats D0
+'digga D no diet', 'sonic boom','134'],[
+#afroswing D1
+
+'dd','Ab'],[
+#bashment/dancehall D2
+
+'Supa']
+#print(L)
+#print (L[0])
+
+chords = ['sonic 1' , 'song 2','5','6']
+
+Genre = input(" What genre, would you like to make ")
+if Genre=="drill":
+  print ("chords:",random.choice(chords)),
+  print("Drums:",random.choice(D[0]))
+
+else:
+  print("Not a genre")
+
+
+restart = input("\nDo you want to restart the program? [y/n] > ")
+
+if restart == "y":
+  os.execv(sys.executable, ['python'] + sys.argv)
+else:
+   print("\nThe programm will me closed...")
+   sys.exit(0)
+
+#print('Sound Selection:',random.choice(SS))"""
+
+
+
