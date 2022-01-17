@@ -673,10 +673,10 @@ elif Genre == "dubstep" and Arrange == "b":
    print('Arrangement:', random.choice(A))
 # print('Arrangement: The Breath')
 
-elif Genre == "edm trap":
+elif Genre == "edm trap" and Arrange =="a":
    print('Sound Selection:', random.choice(SS))
    # print('Sound Selection: The Code - Breath')
-   print('Main melody:', random.choice(MM))
+   print('Main melody:', random.choice(MM[0]))
    # print('Main Melody: Whereisalex - Death')
    print('Counter Melody:', random.choice(CM))
    print('Chord Progression:', random.choice(C))
@@ -691,10 +691,28 @@ elif Genre == "edm trap":
    print('Arrangement:', random.choice(A))
 # print('Arrangement: The Breath')
 
-elif Genre == "funk":
+elif Genre == "edm trap" and Arrange =="b":
    print('Sound Selection:', random.choice(SS))
    # print('Sound Selection: The Code - Breath')
-   print('Main melody:', random.choice(MM))
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[7]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "funk" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
    # print('Main Melody: Whereisalex - Death')
    print('Counter Melody:', random.choice(CM))
    print('Chord Progression:', random.choice(C))
@@ -709,10 +727,28 @@ elif Genre == "funk":
    print('Arrangement:', random.choice(A))
 # print('Arrangement: The Breath')
 
-elif Genre == "future bass":
+elif Genre == "funk" and Arrange == "b":
    print('Sound Selection:', random.choice(SS))
    # print('Sound Selection: The Code - Breath')
-   print('Main melody:', random.choice(MM))
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[8]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "future bass" and Arrange =="a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
    # print('Main Melody: Whereisalex - Death')
    print('Counter Melody:', random.choice(CM))
    print('Chord Progression:', random.choice(C))
@@ -727,10 +763,46 @@ elif Genre == "future bass":
    print('Arrangement:', random.choice(A))
 # print('Arrangement: The Breath')
 
-elif Genre == "futurebeats":
+elif Genre == "future bass" and Arrange =="b":
    print('Sound Selection:', random.choice(SS))
    # print('Sound Selection: The Code - Breath')
-   print('Main melody:', random.choice(MM))
+   print('Main melody:', random.choice(MM[1]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[9]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "futurebeats" and Arrange == "a":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[0]))
+   # print('Main Melody: Whereisalex - Death')
+   print('Counter Melody:', random.choice(CM))
+   print('Chord Progression:', random.choice(C))
+   print('Chord Pattern:', random.choice(CP))
+   print('Drums and Bass:', random.choice(D[10]))
+   print('Percussion:', random.choice(P))
+   print('Transistions:', random.choice(T))
+   print('Extensions:', random.choice(E))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Idea:', random.choice(I))
+   print('Arrangement:', random.choice(A))
+# print('Arrangement: The Breath')
+
+elif Genre == "futurebeats" and Arrange == "b":
+   print('Sound Selection:', random.choice(SS))
+   # print('Sound Selection: The Code - Breath')
+   print('Main melody:', random.choice(MM[1]))
    # print('Main Melody: Whereisalex - Death')
    print('Counter Melody:', random.choice(CM))
    print('Chord Progression:', random.choice(C))
@@ -1102,6 +1174,5 @@ else:
    sys.exit(0)
 
 #print('Sound Selection:',random.choice(SS))"""
-
 
 
